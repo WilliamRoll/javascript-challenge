@@ -1,5 +1,6 @@
 // from data.js
 var tableData = data;
+var tableData2 = data;
 
 // Reference to the table body
 var tbody = d3.select("tbody");
@@ -41,9 +42,9 @@ function runEnter() {
     var inputValue = inputElement.property("value");
 
     console.log(inputValue);
-    console.log(tableData);
+    console.log(tableData2);
   
-    var filteredData = tableData.filter(filterItem => filterItem.datetime === inputValue);
+    var filteredData = tableData2.filter(filterItem => filterItem.datetime === inputValue);
   
     console.log(filteredData);
 
