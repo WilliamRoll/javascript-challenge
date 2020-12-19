@@ -41,9 +41,25 @@ function runEnter() {
     var inputValue = inputElement.property("value");
 
     console.log(inputValue);
-    console.log(people);
+    console.log(tableData);
   
-    var filteredData = people.filter(person => person.bloodType === inputValue);
+    var filteredData = tableData.filter(filterItem => filterItem.datetime === inputValue);
   
     console.log(filteredData);
+
+        // Reference to the table body
+        var tbody = d3.select("tbody");
+
+        tbody.html("");
+
+        //Update each cell's text with UFO sightings data with filter
+        filteredData.forEach((ufoSighting) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSighting).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+        });
+
+
 }
