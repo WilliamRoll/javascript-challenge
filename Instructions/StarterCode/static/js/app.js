@@ -20,3 +20,30 @@ Object.entries(ufoSighting).forEach(([key, value]) => {
     cell.text(value);
 });
 });
+
+//Select the button and form
+var button = d3.select("#button");
+var form = d3.select("#form");
+
+//Event handlers
+button.on("click", runEnter);
+form.on("submit", runEnter);
+
+//Event handler function
+function runEnter() {
+
+    //prevent page from refreshing
+    d3.event.preventDefault();
+
+    //Select the input element and get the raw HTML node
+    // Get the value property of the input element
+    var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
+
+    console.log(inputValue);
+    console.log(people);
+  
+    var filteredData = people.filter(person => person.bloodType === inputValue);
+  
+    console.log(filteredData);
+}
